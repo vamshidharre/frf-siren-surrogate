@@ -1,4 +1,4 @@
-"""Consensus feature screening: 255 material parameters -> top-k.
+"""Consensus feature screening: material parameters (E, RHO, GE per component) -> top-k.
 
 Four importance measures are computed against band-level dB targets, each is
 turned into a rank, and the mean rank decides the final ordering:

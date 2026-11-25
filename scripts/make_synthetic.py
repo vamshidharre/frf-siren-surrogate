@@ -1,6 +1,6 @@
-"""Generate a synthetic stand-in dataset with the same shape as the real one.
+"""Generate a synthetic stand-in dataset for testing the pipeline.
 
-85 components x (E, RHO, GE) = 255 parameters, LHS-sampled at +-40 %, FRFs on
+85 components x (E, RHO, GE) = 255 parameters, LHS-sampled at +-10 %, FRFs on
 25-10090 Hz (df = 5 Hz, 2014 points). The response is a modal sum in which a
 handful of components drive the mode frequencies through sqrt(E/rho) and the
 mode damping through GE, so screening has a real signal to find.
@@ -29,7 +29,7 @@ d = 3 * a.n_comp
 
 # Latin hypercube in [0,1]^d
 u = (rng.permuted(np.tile(np.arange(a.n), (d, 1)), axis=1).T + rng.random((a.n, d))) / a.n
-scale = 0.6 + 0.8 * u                     # +-40 % around nominal
+scale = 0.9 + 0.2 * u                     # +-10 % around nominal
 E0, R0, G0 = 70e3, 2.7e-9, 0.02
 cols = []
 for c in range(1, a.n_comp + 1):
