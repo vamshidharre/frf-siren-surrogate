@@ -1,0 +1,14 @@
+# Activation study: same coordinate formulation, different networks.
+# Used by scripts/compare_models.py on top of configs/default.yaml.
+
+variants:
+  siren_w1:   {type: siren, width: 128, n_blocks: 3, omega0: 1.0}
+  siren_w2:   {type: siren, width: 128, n_blocks: 3, omega0: 2.0}
+  siren_w5:   {type: siren, width: 128, n_blocks: 3, omega0: 5.0}
+  siren_w10:  {type: siren, width: 128, n_blocks: 3, omega0: 10.0}
+  siren_w30:  {type: siren, width: 128, n_blocks: 3, omega0: 30.0}
+  gelu_deep:  {type: gelu,  width: 192, depth: 14}
+  silu_mlp:   {type: silu,  width: 192, depth: 6}
+  tanh_mlp:   {type: tanh,  width: 192, depth: 6}
+
+seeds: [42, 1, 7]
